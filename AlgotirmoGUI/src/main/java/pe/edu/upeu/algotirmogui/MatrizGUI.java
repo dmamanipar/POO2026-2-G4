@@ -34,6 +34,9 @@ public class MatrizGUI extends Application {
             grid.setHgap(10);
             grid.setVgap(10);
             informacion=new Label("Mostrar Informacion");
+            btnIniciar.setOnAction(e -> {
+                matrizForma21(spTam.getValue(),spNumI.getValue());
+            });
             matrizForma21(spTam.getValue(),spNumI.getValue());
             VBox vb = new VBox(10,titulo,hb,grid, informacion);
             ScrollPane scroll = new ScrollPane(vb);
