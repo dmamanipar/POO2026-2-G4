@@ -9,9 +9,13 @@ public class ClaseExterna {
         this.num2=num2;
         this.oper=oper;
     }
+    //ClaseExterna(){}
+
     class ClaseInterna{
+
         double operacion(int num1, int num2, char oper){
             double resul=0;
+
             switch (oper){
                 case '+': resul=num1+num2; break;
                 case '-': resul=num1-num2; break;
@@ -21,13 +25,26 @@ public class ClaseExterna {
             }
             return resul;
         }
+
+        class SubClaseInterna{
+            void pruebaSub() {
+                System.out.println("Ejecutame");
+            }
+        }
+
     }
 
     public static void main(String[] args) {
         char[] oper={'+', '-', '/', '*'};
         ClaseExterna obj=new ClaseExterna(10, 6,'+');
-        ClaseInterna objI=obj.new ClaseInterna();
+
+        ClaseInterna objI= obj.new ClaseInterna();
+
+        ClaseInterna.SubClaseInterna yy=objI.new SubClaseInterna();
+        yy.pruebaSub();
+
         for (char o:oper) {
+
             double resul = objI.operacion(obj.num1, obj.num2, o);
             System.out.println("Resultado con "+o+":" +resul);
         }

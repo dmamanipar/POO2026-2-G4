@@ -1,4 +1,4 @@
-package pe.edu.upeu.genericos;
+package pe.edu.upeu.genericos.repository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -17,5 +17,9 @@ public class Principal {
             System.out.println(e.getDescripcion()+"\t"+e.name());
         }
 
+        for (DiaSemana ds:DiaSemana.values()){
+            System.out.println(ds);
+        }
+
     }
 }
