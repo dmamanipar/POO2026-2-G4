@@ -12,6 +12,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.12.1</junit.version>
+        <gluonfx.target>host</gluonfx.target>
+        <gluonfx.plugin.version>1.0.29</gluonfx.plugin.version>
     </properties>
 
     <dependencies>
@@ -55,6 +57,35 @@
                     <target>21</target>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>com.gluonhq</groupId>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>${gluonfx.plugin.version}</version>
+                <configuration>
+                    <target>${gluonfx.target}</target>
+                    <mainClass>pe.edu.upeu.algotirmogui.Launcher</mainClass>
+                    <appIdentifier>pe.edu.upeu.algotirmogui</appIdentifier>
+                    <!-- Ponlo a true la primera vez: verás qué está pasando -->
+                    <verbose>true</verbose>
+                    <!-- Descomenta si no puedes usar la variable GRAALVM_HOME
+                    <graalvmHome>/ruta/a/graalvm</graalvmHome>
+                    -->
+                    <!-- Activa esto solo si el binario no arranca por falta de GPU -->
+                    <!-- <enableSWRendering>true</enableSWRendering> -->
+                    <!-- CRÍTICO: Registrar clases que JavaFX instancia por reflexión -->
+                    <reflectionList>
+                        <list>pe.edu.upeu.algotirmogui.HelloApplication</list>
+                        <list>pe.edu.upeu.algotirmogui.MatrizGUI</list>
+                    </reflectionList>
+                    <releaseConfiguration>
+                        <vendor>Mi Empresa S.A.</vendor>
+                        <description>Mi aplicación nativa</description>
+                        <version>1.0.0</version>
+                    </releaseConfiguration>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -64,7 +95,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>pe.edu.upeu.algotirmogui/pe.edu.upeu.algotirmogui.HelloApplication</mainClass>
+                            <mainClass>pe.edu.upeu.algotirmogui/pe.edu.upeu.algotirmogui.MatrizGUI</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
@@ -77,4 +108,16 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>desktop</id>
+            <activation><activeByDefault>true</activeByDefault></activation>
+            <properties><gluonfx.target>host</gluonfx.target></properties>
+        </profile>
+        <profile>
+            <id>android</id>
+            <properties><gluonfx.target>android</gluonfx.target></properties>
+        </profile>
+    </profiles>
 </project>
