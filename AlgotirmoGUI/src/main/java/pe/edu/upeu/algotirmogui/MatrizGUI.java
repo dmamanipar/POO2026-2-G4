@@ -22,7 +22,7 @@ public class MatrizGUI extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-            Label titulo = new Label("Matriz -Formas");
+            Label titulo = new Label("Matriz -Formas  - David Mamani");
             Label lbnTam = new Label("Tamaño Matriz:");
             Spinner<Integer> spTam=new Spinner<>(2,30,5);
 
