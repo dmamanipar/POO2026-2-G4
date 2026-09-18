@@ -1,6 +1,10 @@
 package pe.edu.upeu.sysventas.repository;
 
+import pe.edu.upeu.sysventas.enums.TipoProducto;
+import pe.edu.upeu.sysventas.model.Categoria;
+import pe.edu.upeu.sysventas.model.Marca;
 import pe.edu.upeu.sysventas.model.Producto;
+import pe.edu.upeu.sysventas.model.UnidMedida;
 
 public class ProductoRepository extends AbstractJpaRepository<Producto, Long>{
     private long sequence=1;
@@ -18,4 +22,23 @@ public class ProductoRepository extends AbstractJpaRepository<Producto, Long>{
     protected Long generateId() {
         return sequence++;
     }
+
+    public void seedData() {
+        if (findAll().isEmpty()) {
+            Categoria c=new Categoria();
+            c.setIdCategoria(1L);
+
+            Marca m=Marca.builder().idMarca(1L).build();
+
+            UnidMedida u=new UnidMedida();
+            u.setIdUnidad(1L);
+
+            save(new Producto(generateId(), "Televisor",
+                    TipoProducto.PRODUCTO,
+                    1500.00, 0.0, 200.0, 12.0,
+                    0.0 ,c, m,u
+                    ));
+        }
+    }
+
 }

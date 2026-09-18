@@ -73,7 +73,7 @@
                               <Label text="Unidad Medida" GridPane.rowIndex="8" />
                               <ComboBox fx:id="cbxCategoria" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7" />
                               <ComboBox fx:id="cbxUnidMedida" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8" />
-                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                              <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onGuardar" text="Guardar" GridPane.columnIndex="1" GridPane.rowIndex="9">
                                  <GridPane.margin>
                                     <Insets right="5.0" />
                                  </GridPane.margin></Button>
@@ -91,12 +91,7 @@
                   </AnchorPane>
                   <AnchorPane>
                      <children>
-                        <TableView fx:id="tableView" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-                          <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                          </columns>
-                        </TableView>
+                        <TableView fx:id="tableView" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                      </children></AnchorPane>
                </children>
             </HBox>
