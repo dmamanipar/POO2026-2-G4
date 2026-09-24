@@ -11,4 +11,5 @@ module pe.edu.upeu.sysventas {
     opens pe.edu.upeu.sysventas.controller to javafx.fxml;
     exports pe.edu.upeu.sysventas;
     exports pe.edu.upeu.sysventas.model;
+    opens pe.edu.upeu.sysventas.model;
 }
