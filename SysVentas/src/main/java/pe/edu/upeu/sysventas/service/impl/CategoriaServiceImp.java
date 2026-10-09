@@ -25,9 +25,7 @@ public class CategoriaServiceImp extends CrudGenericoServiceImp<Categoria, Long>
 
     @Override
     public List<ComboBoxOption> listarCombobox() {
-        if(categoriaRepository.findAll().isEmpty()) {
-            categoriaRepository.seedData();
-        }
+
         List<ComboBoxOption> listar = new ArrayList<>();
         for (Categoria m : categoriaRepository.findAll()) {
             ComboBoxOption cb = new ComboBoxOption();
