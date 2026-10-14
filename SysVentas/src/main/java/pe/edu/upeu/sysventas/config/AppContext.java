@@ -69,6 +69,8 @@ public class AppContext {
                         getBean(IProductoService.class),
                         getBean(IUnidadMedidaService.class)));
 
+        registrar(LoginController.class, new LoginController());
+
     }
 
     // API del contenedor — estos dos métodos son todo lo que hace la DI

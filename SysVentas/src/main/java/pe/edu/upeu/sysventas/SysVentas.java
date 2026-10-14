@@ -15,14 +15,15 @@ public class SysVentas extends Application {
     public void start(Stage stage) throws IOException {
         AppContext appContext=AppContext.getInstance();
         Screen screen=Screen.getPrimary();
-        FXMLLoader fxmlLoader = new FXMLLoader(SysVentas.class.getResource("/view/maingui.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SysVentas.class.getResource("/view/login.fxml"));
         fxmlLoader.setControllerFactory(appContext::getBean);
         Rectangle2D dimension=screen.getBounds();
 
-        Scene scene = new Scene(fxmlLoader.load(), dimension.getWidth(), dimension.getHeight()-60);
+        Scene scene = new Scene(fxmlLoader.load());
         scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-        stage.setTitle("Hello!");
+        stage.setTitle("SysVentas Login!");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }
