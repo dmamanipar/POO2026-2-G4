@@ -11,6 +11,7 @@ module pe.edu.upeu.sysventas {
     requires org.slf4j;
     requires java.naming;
     requires com.zaxxer.hikari;
+    requires java.prefs;
 
     opens pe.edu.upeu.sysventas to javafx.fxml;
     opens pe.edu.upeu.sysventas.controller to javafx.fxml;

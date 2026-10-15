@@ -11,12 +11,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
 import pe.edu.upeu.sysventas.SysVentas;
 import pe.edu.upeu.sysventas.config.AppContext;
+import pe.edu.upeu.sysventas.dto.SessionManager;
 import pe.edu.upeu.sysventas.model.Usuario;
+import pe.edu.upeu.sysventas.service.IUsuarioService;
 
+@RequiredArgsConstructor
 public class LoginController {
 
+    private final IUsuarioService us;
 
     @FXML
     TextField txtUsuario;
@@ -26,14 +31,19 @@ public class LoginController {
 
     @FXML
     public void login(ActionEvent e){
-        if(txtUsuario.getText().equals("davidmp") && txtClave.getText().equals("123456")){
-            abrirPantalla(e, new Usuario());
-        }else{
-            System.out.println("Error en las credenciales");
-        }
+       us.loginUsuario(txtUsuario.getText(), txtClave.getText())
+               .ifPresentOrElse(usu->{ abrirPantalla(e, usu); },
+                       ()->{
+                           System.out.println("Error de autenticacion!!");
+                       });
     }
 
     private void abrirPantalla(ActionEvent e, Usuario u){
+        SessionManager.getInstance().setUserPerfil(u.getIdPerfil().getNombre());
+        SessionManager.getInstance().setUserId(u.getIdUsuario());
+        SessionManager.getInstance().setUserName(u.getUsuario());
+
+
         try {
             AppContext appContext=AppContext.getInstance();
             Screen screen=Screen.getPrimary();
