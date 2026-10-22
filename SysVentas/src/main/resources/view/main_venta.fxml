@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.VentaController">
+<AnchorPane fx:id="miContenedor" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.VentaController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
@@ -25,8 +25,8 @@
                     </rowConstraints>
                      <children>
                         <Label text="DNI/Ruc de Cliente" />
-                        <TextField GridPane.rowIndex="1" />
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Buscar" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
+                        <TextField fx:id="autocompCliente" GridPane.rowIndex="1" />
+                        <Button fx:id="btnFormCliente" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buscarClienteCdni" text="Buscar" GridPane.columnIndex="1" GridPane.rowSpan="2147483647">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -36,7 +36,7 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="dniRuc" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -46,7 +46,7 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <TextField fx:id="razonSocial" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -56,12 +56,12 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <TextField fx:id="txtDireccion" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" GridPane.columnIndex="5" GridPane.rowSpan="2147483647">
+                        <Button fx:id="btnRegCliente" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#guardarCliente" text="Add" GridPane.columnIndex="5" GridPane.rowSpan="2147483647">
                            <GridPane.margin>
                               <Insets left="5.0" right="5.0" />
                            </GridPane.margin>
@@ -89,13 +89,13 @@
                     </rowConstraints>
                      <children>
                         <Label text="Buscar Producto" />
-                        <TextField GridPane.rowIndex="1" />
+                        <TextField fx:id="autocompProducto" GridPane.rowIndex="1" />
                         <Label text="Producto" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="nombreProducto" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -105,7 +105,7 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="codigoPro" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -115,7 +115,7 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <TextField fx:id="stockPro" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -125,7 +125,7 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="4" GridPane.rowIndex="1">
+                        <TextField fx:id="cantidadPro" onKeyTyped="#calcularPT" GridPane.columnIndex="4" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -135,7 +135,7 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="5" GridPane.rowIndex="1">
+                        <TextField fx:id="punitPro" GridPane.columnIndex="5" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
@@ -145,12 +145,12 @@
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField GridPane.columnIndex="6" GridPane.rowIndex="1">
+                        <TextField fx:id="preTPro" GridPane.columnIndex="6" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Add" GridPane.columnIndex="7" GridPane.rowSpan="2147483647">
+                        <Button fx:id="btnRegCarrito" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registarPCarrito" text="Add" GridPane.columnIndex="7" GridPane.rowSpan="2147483647">
                            <GridPane.margin>
                               <Insets left="5.0" right="5.0" />
                            </GridPane.margin>
@@ -161,7 +161,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <TableView layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+                  <TableView fx:id="tableView" layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
                </children>
             </AnchorPane>
             <AnchorPane>
@@ -183,23 +183,23 @@
                         <Label text="IGV" GridPane.columnIndex="1" />
                         <Label text="Descuento" GridPane.columnIndex="2" />
                         <Label text="Importe Total" GridPane.columnIndex="3" />
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Registrar Venta" GridPane.columnIndex="4" GridPane.rowSpan="2147483647">
+                        <Button fx:id="btnRegVenta" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarVenta" text="Registrar Venta" GridPane.columnIndex="4" GridPane.rowSpan="2147483647">
                            <GridPane.margin>
                               <Insets left="5.0" right="5.0" />
                            </GridPane.margin>
                         </Button>
-                        <TextField GridPane.rowIndex="1" />
-                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <TextField fx:id="txtBaseImp" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtIgv" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <TextField fx:id="txtDescuento" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <TextField fx:id="txtImporteT" GridPane.columnIndex="3" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="5.0" />
                            </GridPane.margin>

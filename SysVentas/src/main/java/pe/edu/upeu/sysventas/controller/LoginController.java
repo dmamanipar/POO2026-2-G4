@@ -15,6 +15,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
 import pe.edu.upeu.sysventas.SysVentas;
+import pe.edu.upeu.sysventas.components.StageManager;
 import pe.edu.upeu.sysventas.components.Toast;
 import pe.edu.upeu.sysventas.config.AppContext;
 import pe.edu.upeu.sysventas.dto.SessionManager;
@@ -77,6 +78,9 @@ public class LoginController {
         SessionManager.getInstance().setUserPerfil(u.getIdPerfil().getNombre());
         SessionManager.getInstance().setUserId(u.getIdUsuario());
         SessionManager.getInstance().setUserName(u.getUsuario());
+
+        StageManager.setPrimaryStage(stage);
+
         try {
             AppContext appContext=AppContext.getInstance();
             Screen screen=Screen.getPrimary();
